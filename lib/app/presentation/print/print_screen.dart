@@ -17,15 +17,21 @@ class PrintScreen extends AppWidget<PrintNotifier, void, void> {
 
   @override
   Widget bodyBuild(BuildContext context) {
-    return SafeArea(
-        child: Container(
-      padding: EdgeInsets.all(10),
-      width: double.maxFinite,
-      child: Column(
-        children: [_deviceLayout(context)],
+  return SafeArea(
+    child: SingleChildScrollView( // Tambahkan ini
+      child: Container(
+        padding: EdgeInsets.all(10),
+        width: double.maxFinite,
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            _deviceLayout(context),
+          ],
+        ),
       ),
-    ));
-  }
+    ),
+  );
+}
 
   _deviceLayout(BuildContext context) {
     return Column(
@@ -36,8 +42,7 @@ class PrintScreen extends AppWidget<PrintNotifier, void, void> {
           style: GlobalHelper.getTextTheme(context,
               appTextStyle: AppTextStyle.TITLE_MEDIUM),
         ),
-        SizedBox(
-          height: 10,
+        SizedBox(height: 10,
         ),
         ListView.separated(
           shrinkWrap: true,

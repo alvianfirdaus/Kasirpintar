@@ -21,7 +21,15 @@ sealed class Order with _$Order {
       @JsonKey(name: 'change_amount') int? changeAmount,
       @JsonKey(name: 'payment_method') PaymentMethodEntity? paymentMethod,
       @JsonKey(name: 'updated_at') String? updatedAt,
-      required List<ProductItemOrderEntity> items}) = OrderEntity;
+      @JsonKey(name: 'items', fromJson: productItemOrderEntityListFromJson)
+    required List<ProductItemOrderEntity> items,
+  }) = OrderEntity;
+      
+
 
   factory Order.fromJson(Map<String, dynamic> json) => _$OrderFromJson(json);
+  
 }
+List<ProductItemOrderEntity> productItemOrderEntityListFromJson(List<dynamic> json) {
+  return json.map((e) => ProductItemOrderEntity.fromJson(e as Map<String, dynamic>)).toList();
+  }
