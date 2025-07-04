@@ -10,7 +10,7 @@ class DateTimeHelper {
   static String formatDateTimeFromString(
       {required String dateTimeString, String format = 'd MMM yyyy'}) {
     if (dateTimeString.isEmpty) return '';
-    DateTime dateTime = DateTime.parse(dateTimeString);
+    DateTime dateTime = DateTime.parse(dateTimeString).toLocal(); // Tambahkan toLocal
     return DateFormat(format, 'id').format(dateTime);
   }
 }

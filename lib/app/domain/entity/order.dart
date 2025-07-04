@@ -30,6 +30,9 @@ sealed class Order with _$Order {
   factory Order.fromJson(Map<String, dynamic> json) => _$OrderFromJson(json);
   
 }
-List<ProductItemOrderEntity> productItemOrderEntityListFromJson(List<dynamic> json) {
-  return json.map((e) => ProductItemOrderEntity.fromJson(e as Map<String, dynamic>)).toList();
-  }
+List<ProductItemOrderEntity> productItemOrderEntityListFromJson(dynamic json) {
+  if (json == null) return [];
+  return (json as List)
+      .map((e) => ProductItemOrderEntity.fromJson(e as Map<String, dynamic>))
+      .toList();
+}

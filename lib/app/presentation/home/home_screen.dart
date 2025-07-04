@@ -175,7 +175,8 @@ class HomeScreen extends AppWidget<HomeNotifier, void, void> {
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 Text(
-                  '${NumberHelper.formatIdr(item.totalPrice!)} (${item.items.length} item)',
+                  '${NumberHelper.formatIdr(item.totalPrice!)}  ',
+                  // '${NumberHelper.formatIdr(item.totalPrice!)} (${item.items.length} ',
                   style: GlobalHelper.getTextTheme(context,
                           appTextStyle: AppTextStyle.BODY_LARGE)
                       ?.copyWith(

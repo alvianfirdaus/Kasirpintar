@@ -24,11 +24,7 @@ _$OrderEntityImpl _$$OrderEntityImplFromJson(Map<String, dynamic> json) =>
           : PaymentMethodEntity.fromJson(
               json['payment_method'] as Map<String, dynamic>),
       updatedAt: json['updated_at'] as String?,
-      items: (json['items'] != null)
-    ? (json['items'] as List)
-        .map((e) => ProductItemOrderEntity.fromJson(e as Map<String, dynamic>))
-        .toList()
-    : [],
+      items: productItemOrderEntityListFromJson(json['items']),
     );
 
 Map<String, dynamic> _$$OrderEntityImplToJson(_$OrderEntityImpl instance) =>
