@@ -1,6 +1,6 @@
-# dewakoding_kasir
+# UMKM CORNER
 
-A new Flutter project.
+Property of Ijendev.id
 
 ## Getting Started
 
